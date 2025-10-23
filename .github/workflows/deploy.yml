@@ -49,7 +49,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ inputs.AWS_ACCOUNT }}:role/ukpsdigital-terraform-deployment
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/ukpsdigital-terraform-deployment
           aws-region: eu-west-2
 
       - name: Test IAM credentials
