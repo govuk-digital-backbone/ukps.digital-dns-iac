@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "co-security-gov-uk-tfstate"
-    key    = "co-security-gov-uk-dns.tfstate"
+    bucket = "gds-digitalbackbone-dns-production-tfstate"
+    key    = "ukps.digital-dns-iac.tfstate"
     region = "eu-west-2"
   }
 }
