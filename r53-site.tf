@@ -9,9 +9,9 @@ resource "aws_route53_record" "site-www-cname" {
   ]
 }
 
-resource "aws_route53_record" "site-www-a" {
+resource "aws_route53_record" "site-a" {
   zone_id = aws_route53_zone.ukpsdigital.zone_id
-  name    = "www"
+  name    = "@"
   type    = "A"
   ttl     = local.standard_ttl
 
@@ -24,9 +24,9 @@ resource "aws_route53_record" "site-www-a" {
   ]
 }
 
-resource "aws_route53_record" "site-www-aaaa" {
+resource "aws_route53_record" "site-aaaa" {
   zone_id = aws_route53_zone.ukpsdigital.zone_id
-  name    = "www"
+  name    = "@"
   type    = "AAAA"
   ttl     = local.standard_ttl
 
