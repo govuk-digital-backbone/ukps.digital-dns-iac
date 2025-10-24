@@ -13,12 +13,12 @@ resource "aws_route53_zone" "ukpsdigital" {
 
 resource "aws_route53_record" "gh-verification" {
   zone_id = aws_route53_zone.ukpsdigital.zone_id
-  name    = "801a7ec0ae"
+  name    = "_gh-govuk-digital-backbone-o"
   type    = "TXT"
   ttl     = local.standard_ttl
 
   records = [
-    "_gh-govuk-digital-backbone-o",
+    "801a7ec0ae",
   ]
 }
 
