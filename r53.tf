@@ -24,7 +24,7 @@ resource "aws_route53_record" "gh-verification" {
 
 resource "aws_route53_record" "scw-verification" {
   zone_id = aws_route53_zone.ukpsdigital.zone_id
-  name    = "_scaleway-challenge"
+  name    = "_scaleway-challenge.scw-test"
   type    = "TXT"
   ttl     = local.standard_ttl
 
