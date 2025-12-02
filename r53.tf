@@ -22,6 +22,29 @@ resource "aws_route53_record" "gh-verification" {
   ]
 }
 
+resource "aws_route53_record" "scw-verification" {
+  zone_id = aws_route53_zone.ukpsdigital.zone_id
+  name    = "_scaleway-challenge"
+  type    = "TXT"
+  ttl     = local.standard_ttl
+
+  records = [
+    "1ac0cdbb-aa61-4f03-811d-c41f9cd2e614",
+  ]
+}
+
+resource "aws_route53_record" "security_txt-prod" {
+  zone_id = aws_route53_zone.ukpsdigital.zone_id
+  name    = "_security"
+  type    = "TXT"
+  ttl     = local.standard_ttl
+
+  records = [
+    "security_policy=https://vulnerability-reporting.service.security.gov.uk/.well-known/security.txt",
+    "security_contact=https://vulnerability-reporting.service.security.gov.uk/submit",
+  ]
+}
+
 resource "aws_route53_record" "security_txt-prod" {
   zone_id = aws_route53_zone.ukpsdigital.zone_id
   name    = "_security"
