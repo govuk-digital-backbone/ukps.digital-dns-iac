@@ -32,7 +32,7 @@ resource "aws_route53_record" "nonprod-monitoring-delegated-zone" {
   ]
 }
 
-resource "aws_route53_record" "nonprod-monitoring-delegated-zone" {
+resource "aws_route53_record" "prod-monitoring-delegated-zone" {
   zone_id         = aws_route53_zone.observability.zone_id
   allow_overwrite = true
   name            = "monitoring.prod"
