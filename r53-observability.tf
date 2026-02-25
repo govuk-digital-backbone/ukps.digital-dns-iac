@@ -31,3 +31,19 @@ resource "aws_route53_record" "nonprod-monitoring-delegated-zone" {
     "ns-88.awsdns-11.com."
   ]
 }
+
+resource "aws_route53_record" "nonprod-monitoring-delegated-zone" {
+  zone_id         = aws_route53_zone.observability.zone_id
+  allow_overwrite = true
+  name            = "monitoring.prod"
+  ttl             = local.standard_ttl
+  type            = "NS"
+
+  records = [
+    "ns-1994.awsdns-57.co.uk.",
+    "ns-252.awsdns-31.com.",
+    "ns-1115.awsdns-11.org.",
+    "ns-672.awsdns-20.net."
+  ]
+}
+
