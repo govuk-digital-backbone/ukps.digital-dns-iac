@@ -47,3 +47,17 @@ resource "aws_route53_record" "prod-monitoring-delegated-zone" {
   ]
 }
 
+resource "aws_route53_record" "nonprod-legacy-delegated-zone" {
+  zone_id         = aws_route53_zone.observability.zone_id
+  allow_overwrite = true
+  name            = "legacy.nonprod"
+  ttl             = local.standard_ttl
+  type            = "NS"
+
+  records = [
+    "ns-1089.awsdns-08.org.",
+    "ns-647.awsdns-16.net.",
+    "ns-320.awsdns-40.com.",
+    "ns-2011.awsdns-59.co.uk."
+  ]
+}
