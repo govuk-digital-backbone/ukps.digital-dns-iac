@@ -55,9 +55,9 @@ resource "aws_route53_record" "nonprod-legacy-delegated-zone" {
   type            = "NS"
 
   records = [
-    "ns-1089.awsdns-08.org.",
-    "ns-647.awsdns-16.net.",
-    "ns-320.awsdns-40.com.",
-    "ns-2011.awsdns-59.co.uk."
+    "ns-2035.awsdns-62.co.uk.",
+    "ns-1361.awsdns-42.org.",
+    "ns-662.awsdns-18.net.",
+    "ns-57.awsdns-07.com."
   ]
 }
