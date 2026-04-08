@@ -61,3 +61,18 @@ resource "aws_route53_record" "nonprod-legacy-delegated-zone" {
     "ns-57.awsdns-07.com."
   ]
 }
+
+resource "aws_route53_record" "prod-legacy-delegated-zone" {
+  zone_id         = aws_route53_zone.observability.zone_id
+  allow_overwrite = true
+  name            = "legacy.prod"
+  ttl             = local.standard_ttl
+  type            = "NS"
+
+  records = [
+    "ns-2046.awsdns-63.co.uk."
+    "ns-1168.awsdns-18.org."
+    "ns-601.awsdns-11.net."
+    "ns-322.awsdns-40.com."
+  ]
+}
