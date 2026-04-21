@@ -47,6 +47,21 @@ resource "aws_route53_record" "prod-monitoring-delegated-zone" {
   ]
 }
 
+resource "aws_route53_record" "playground-delegated-zone" {
+  zone_id         = aws_route53_zone.observability.zone_id
+  allow_overwrite = true
+  name            = "playground"
+  ttl             = local.standard_ttl
+  type            = "NS"
+
+  records = [
+    "ns-1462.awsdns-54.org.",
+    "ns-1696.awsdns-20.co.uk.",
+    "ns-265.awsdns-33.com.",
+    "ns-524.awsdns-01.net."
+  ]
+}
+
 resource "aws_route53_record" "nonprod-legacy-delegated-zone" {
   zone_id         = aws_route53_zone.observability.zone_id
   allow_overwrite = true
