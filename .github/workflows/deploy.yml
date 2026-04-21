@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '**.tf'
+      - '.terraform-version'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
     inputs:
@@ -34,6 +35,10 @@ jobs:
           ref: ${{ github.ref_name }}
           path: ${{ github.ref_name }}
 
+      - name: Read Terraform version
+        id: terraform-version
+        run: echo "version=$(cat '${{ github.ref_name }}/.terraform-version')" >> "$GITHUB_OUTPUT"
+
       - name: Debug Variables
         run: |
           echo "Run Mode: ${{ github.event_name == 'push' && 'apply' || inputs.RUN_MODE }}"
@@ -45,7 +50,7 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.12.2"
+          terraform_version: ${{ steps.terraform-version.outputs.version }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
