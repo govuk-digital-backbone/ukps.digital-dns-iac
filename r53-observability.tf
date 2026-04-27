@@ -55,10 +55,10 @@ resource "aws_route53_record" "playground-delegated-zone" {
   type            = "NS"
 
   records = [
-    "ns-1462.awsdns-54.org.",
-    "ns-1696.awsdns-20.co.uk.",
-    "ns-265.awsdns-33.com.",
-    "ns-524.awsdns-01.net."
+    "ns-1365.awsdns-42.org.",
+    "ns-961.awsdns-56.net.",
+    "ns-485.awsdns-60.com.",
+    "ns-1748.awsdns-26.co.uk."
   ]
 }
 
