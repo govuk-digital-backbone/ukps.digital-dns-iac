@@ -77,6 +77,14 @@ resource "aws_route53_record" "nonprod-legacy-delegated-zone" {
   ]
 }
 
+resource "aws_route53_record" "nonprod_legacy_ds" {
+  zone_id = aws_route53_zone.observability.zone_id
+  name    = "legacy.nonprod.observability.ukps.digital"
+  type    = "DS"
+  ttl     = 300
+  records = ["<key-tag> 13 2 <digest>"]
+}
+
 resource "aws_route53_record" "prod-legacy-delegated-zone" {
   zone_id         = aws_route53_zone.observability.zone_id
   allow_overwrite = true
@@ -90,4 +98,12 @@ resource "aws_route53_record" "prod-legacy-delegated-zone" {
     "ns-601.awsdns-11.net.",
     "ns-322.awsdns-40.com."
   ]
+}
+
+resource "aws_route53_record" "prod_legacy_ds" {
+  zone_id = aws_route53_zone.observability.zone_id
+  name    = "legacy.prod.observability.ukps.digital"
+  type    = "DS"
+  ttl     = 300
+  records = ["<key-tag> 13 2 <digest>"]
 }
