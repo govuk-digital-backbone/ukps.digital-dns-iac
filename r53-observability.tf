@@ -82,7 +82,7 @@ resource "aws_route53_record" "nonprod_legacy_ds" {
   name    = "legacy.nonprod.observability.ukps.digital"
   type    = "DS"
   ttl     = 300
-  records = ["<key-tag> 13 2 <digest>"]
+  records = ["49347 13 2 C00A86484623A605F19E8C789BBDA6B6BD4152F97BAE4A409C04869C071BDE34"]
 }
 
 resource "aws_route53_record" "prod-legacy-delegated-zone" {
@@ -105,5 +105,5 @@ resource "aws_route53_record" "prod_legacy_ds" {
   name    = "legacy.prod.observability.ukps.digital"
   type    = "DS"
   ttl     = 300
-  records = ["<key-tag> 13 2 <digest>"]
+  records = ["5326 13 2 BFB426CBBD2039FA28D68A17608F38F5EA9117461B0716C537BCAD8EAF888DF4"]
 }
